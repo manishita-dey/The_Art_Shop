@@ -16,7 +16,7 @@ app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
 
 
 # CONNECTING TO DATABASE
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///shop.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URL1", "sqlite:///shop.db")
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
@@ -66,7 +66,7 @@ class Cart(db.Model):
     user = relationship('User', back_populates = 'items')
 
 
-db.create_all()
+# db.create_all()
 
 
 @app.route('/')
