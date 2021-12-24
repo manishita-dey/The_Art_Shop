@@ -1,0 +1,134 @@
+<!DOCTYPE HTML>
+<!--
+	Photon by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>The Art Shop</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+
+<!--		Bootstrap CSS link-->
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+		<link rel="stylesheet" href="../static/assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="../static/assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+
+
+<div style="background-color:#b5c491;">
+	<!--					NAV-->
+					<ul class="nav fixed-top nav-pills justify-content-end">
+<!--  <li class="nav-item">-->
+<!--    <a class="nav-link active" aria-current="page" href="#">Active</a>-->
+<!--  </li>-->
+						  <li class="nav-item">
+    <a class="nav-link " href="{{url_for('home')}}">
+		<strong>
+			{% if current_user.is_authenticated %}
+			{{current_user.name}}
+			{% else %}
+			Home
+			{% endif %}
+		</strong></a>
+  </li>
+						{% if not current_user.is_authenticated %}
+  <li class="nav-item">
+<!--    <a class="nav-link" aria-current="page" href="#">Link</a>-->
+	  <a href="{{url_for('login')}}" class="button primary">Log in</a></li>
+						<li class = "nav-item"><a href="{{url_for('register')}}" class="button primary">Sign Up</a></li>
+
+						{% else %}
+						<li class = "nav-item"><a href="{{url_for('logout')}}" class="button primary">Log Out</a></li>
+						{% endif %}
+
+<!--						-->
+						<li class="nav-item">
+    <a class="nav-link " href="{{url_for('cart')}}"><strong>🛒</strong></a>
+  </li>
+
+
+
+<!--  <li class="nav-item">-->
+<!--    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>-->
+<!--  </li>-->
+</ul>
+
+</div>
+
+		<!-- Header -->
+			<section id="header">
+				<div class="inner">
+
+
+					<span class="icon solid major fa-paint-brush"></span>
+					<h1>Welcome to, <br />
+						<strong>The Art Shop</strong> </h1>
+					<p style = "color:#575700;">Browse through a number of beautiful paintings<br />
+					suitable for decorating your home or office. </p>
+					<ul class="actions special">
+						<li><a href="#two" class="button scrolly">Discover <strong>The Art</strong></a></li>
+					</ul>
+				</div>
+			</section>
+
+
+
+		<!-- Two -->
+			<section id="two" class="main style2 special">
+				<div class="container">
+
+					<header class="major">
+						<h2>All the amazing paintings for your home in one place!</h2>
+					</header>
+
+
+					<div class="row gtr-150">
+						{% for product in products %}
+						<div class="col-4 col-12-medium">
+							<a href="{{url_for('show',prod_id = product.id)}}"><span class="image fit"><img src="{{product.image}}" alt="" /></span></a>
+							<a href="{{url_for('show',prod_id = product.id)}}"><h3>{{product.name}}</h3></a>
+
+							<p><strong>₹{{product.price}}</strong></p>
+							<ul class="actions special">
+								<li><a href="{{url_for('show',prod_id = product.id)}}" class="button">More</a></li>
+							</ul>
+						</div>
+						{% endfor %}
+
+					</div>
+
+
+				</div>
+			</section>
+
+
+
+		<!-- Footer -->
+			<section id="footer">
+				<ul class="icons">
+					<li><a href="https://github.com/manishita-dey" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+					<li><a href="https://www.linkedin.com/in/manishita-dey-9a9115135/" class="icon brands alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
+				</ul>
+				<ul class="copyright">
+					<li style="color:#575700">&copy; ManishitaDey</li>				</ul>
+			</section>
+
+		<!-- Scripts -->
+			<script src="../static/assets/js/jquery.min.js"></script>
+			<script src="../static/assets/js/jquery.scrolly.min.js"></script>
+			<script src="../static/assets/js/browser.min.js"></script>
+			<script src="../static/assets/js/breakpoints.min.js"></script>
+			<script src="../static/assets/js/util.js"></script>
+			<script src="../static/assets/js/main.js"></script>
+
+	<!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+	</body>
+</html>
