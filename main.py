@@ -67,7 +67,50 @@ class Cart(db.Model):
 
 
 # db.create_all()
+paint1 = Product(name = 'Vintage Bicycle And Old Hat (PRT_1010) - Canvas Art Print - 17in X 24in',
+                 size = 'Size in Centimetres : 43 cm X 61 cm',
+                 price = '1,016',
+                 image = 'https://cdn11.bigcommerce.com/s-x49po/images/stencil/500x659/products/36253/49451/Vintagebicycleandoldhat_na_550_699_2828X4000_0__96192.1544433540.jpg?c=2'
+                 )
 
+paint2 = Product(name = 'Golden Grey Buddha (PRT_1131) - Canvas Art Print - 25in X 21in',
+                 size = 'Size in Centimetres : 64 cm X 53 cm',
+                 price = '1,320',
+                 image = 'https://cdn11.bigcommerce.com/s-x49po/images/stencil/500x659/products/37600/50949/Goldengreybuddha_na_500_14-23_5906X4961_0__54844.1550727595.jpg?c=2'
+                 )
+
+paint3 = Product(name = 'Urban Street With Buildings (PRT_1015) - Canvas Art Print - 17in X 24in',
+                 size = 'Size in Centimetres : 43 cm X 61 cm',
+                 price = '1,016',
+                 image = 'https://cdn11.bigcommerce.com/s-x49po/images/stencil/500x659/products/36258/49456/Urbanstreetwithbuildings_na_550_699_2828X4000_0__76865.1544435506.jpg?c=2'
+                 )
+
+paint4 = Product(name = 'Rocking Lady 1 - Handpainted Art Painting - 32in X 32in',
+                 size = 'Size in Centimetres : 80 cm X 80 cm',
+                 price = '8,991',
+                 image = 'https://cdn11.bigcommerce.com/s-x49po/images/stencil/500x659/products/5684/14277/52Figure40__50289.1506574078.JPG?c=2'
+                 )
+
+paint5 = Product(name = '25Horse02 - Handpainted Art Painting - 24in X 24in',
+                 size = 'Size in Centimetres : 60 cm X 60 cm',
+                 price = '7,731',
+                 image = 'https://cdn11.bigcommerce.com/s-x49po/images/stencil/500x659/products/421/6098/25Horse02__97800__07943.1506573863.jpg?c=2'
+                 )
+
+paint6 = Product(name = 'Hues of Strength - Handpainted Art Painting - 72in X 32in (24in X 32in each X 3pcs)',
+                 size = 'Size in Centimetres : 180 cm X 80 cm',
+                 price = '11,691',
+                 image = 'https://cdn11.bigcommerce.com/s-x49po/images/stencil/500x659/products/645/6516/31GRP120__51399__26480.1506573875.jpg?c=2'
+                 )
+
+db.session.add(paint1)
+db.session.add(paint2)
+db.session.add(paint3)
+db.session.add(paint4)
+db.session.add(paint5)
+db.session.add(paint6)
+
+db.session.commit()
 
 @app.route('/')
 def home():
