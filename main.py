@@ -66,7 +66,7 @@ class Cart(db.Model):
     user = relationship('User', back_populates = 'items')
 
 
-# db.create_all()
+db.create_all()
 
 
 @app.route('/')
